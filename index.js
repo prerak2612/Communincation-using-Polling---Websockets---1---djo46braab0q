@@ -22,10 +22,10 @@ app.post("/message", (req, res) => {
   const timeStamp = new Date().toISOString;
   const mes = { "user": user, "text": text, "timestamp": timeStamp };
   messages.push(mes);
-  return res.status(200).json({ message: mes });
+  return res.status(200).json({ "message": mes });
 });
 app.get("/findMessages", (req, res) => {
-  return res.status(200).json({ messages: messages });
+  return res.status(200).json({ "messages": messages });
 });
 
 module.exports = { app, messages };
