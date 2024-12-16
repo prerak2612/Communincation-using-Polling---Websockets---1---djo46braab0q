@@ -14,7 +14,7 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-app.post("/message", (req, res) => {
+app.post("/message",async(req, res) => {
   const { text, user } = req.body;
   if (!text || !user) {
     return res.status(400).json({ error: "Please provide a valid input" });
@@ -24,7 +24,7 @@ app.post("/message", (req, res) => {
   messages.push(mes);
   return res.status(200).json({ "message": mes });
 });
-app.get("/findMessages", (req, res) => {
+app.get("/findMessages",async(req, res) => {
   return res.status(200).json({ "messages": messages });
 });
 
