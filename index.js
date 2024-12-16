@@ -19,9 +19,10 @@ app.post("/message",async(req, res) => {
   if (!text || !user) {
     return res.status(400).json({ error: "Please provide a valid input" });
   }
-  const timeStamp = new Date().toISOString;
-  const mes = { "user": user, "text": text, "timestamp": timeStamp };
+  const timeStam = new Date().toISOString();
+  const mes = { "user": user, "text": text, "timestamp": timeStam };
   messages.push(mes);
+  console.log(messages)
   return res.status(200).json({ "message": mes });
 });
 app.get("/findMessages",async(req, res) => {
